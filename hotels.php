@@ -1,8 +1,6 @@
 <?php
 
-    $parkSel = isset($_get['parking']);
-
-    // var_dump( $parkSel );
+    
     
 
     $hotels = [
@@ -45,18 +43,29 @@
 
     ];
 
+    $parkSel = isset($_get['parking']);
+
+    // var_dump( $parkSel );
+
+
+    $hotelsSecond = $hotels;
+
     if( isset($_get['parking']) && $_get['parking'] == 'parkYes' ){
         
         $arrayParking = [];
 
-        foreach( hotels as $elem){
-            if( $elem['parking'] )
+        foreach( $hotels as $elem){
+            if( $elem['parking'] == true ){
                 $arrayParking[] = $elem;
+            }
+                
         }
+
+        
 
         $hotelsSecond = $arrayParking;
     }
-
+    
     var_dump( $hotelsSecond );
 
 ?>
