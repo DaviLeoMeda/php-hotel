@@ -1,6 +1,8 @@
 <?php
 
-    $parkSel = $_get['parking'];
+    $parkSel = isset($_get['parking']);
+
+    // var_dump( $parkSel );
     
 
     $hotels = [
@@ -43,6 +45,20 @@
 
     ];
 
+    if( isset($_get['parking']) && $_get['parking'] == 'parkYes' ){
+        
+        $arrayParking = [];
+
+        foreach( hotels as $elem){
+            if( $elem['parking'] )
+                $arrayParking[] = $elem;
+        }
+
+        $hotelsSecond = $arrayParking;
+    }
+
+    var_dump( $hotelsSecond );
+
 ?>
 
 
@@ -75,19 +91,14 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                    foreach( $hotels as $elem ){
-                        if( $parkSel == 'parkYes'){
-                            if( $elem['parking'] == true) {
-                                echo "<tr>" . '<th scope="row">' . $elem['name'] . "</th>" . "<td>" . $elem['description'] . "</td>" . "<td>" . $elem['vote'] . "</td>" . "<td>" . $elem['distance_to_center'] . "km" . "</td>" . "</tr>";
-                            }
-                            
-                        } else {
-                            echo "<tr>" . '<th scope="row">' . $elem['name'] . "</th>" . "<td>" . $elem['description'] . "</td>" . "<td>" . $elem['vote'] . "</td>" . "<td>" . $elem['distance_to_center'] . "km" . "</td>" . "</tr>";
-                        }
-                        
-                    }
-                ?>
+                <?php foreach( $hotels as $elem){?>
+                    <tr>
+                      <th scope="row"><?php echo $elem['name'] ?></th>
+                      <td><?php echo $elem['description'] ?></td>
+                      <td><?php echo $elem['vote'] ?></td>
+                      <td><?php echo $elem['distance_to_center'] . 'km' ?></td>
+                    </tr>
+                <?php }?>
             </tbody>
         </table>
 
@@ -99,4 +110,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-</html> . '<br>' . $elem['description'] . '<br>'
+</html>
