@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <form action="hotels.php" method="get">
+    <form action="hotels.php" method="GET">
 
         <div class>
     

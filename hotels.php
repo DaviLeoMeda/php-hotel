@@ -43,14 +43,16 @@
 
     ];
 
-    $parkSel = isset($_get['parking']);
+    $parkSel = isset($_GET['parking']);
 
     // var_dump( $parkSel );
 
 
     $hotelsSecond = $hotels;
 
-    if( isset($_get['parking']) && $_get['parking'] == 'parkYes' ){
+    if( isset($_GET['parking']) && $_GET['parking'] == 'parkYes' ){
+
+        var_dump('ciaoo');
         
         $arrayParking = [];
 
@@ -100,7 +102,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach( $hotels as $elem){?>
+                <?php foreach( $hotelsSecond as $elem){?>
                     <tr>
                       <th scope="row"><?php echo $elem['name'] ?></th>
                       <td><?php echo $elem['description'] ?></td>
